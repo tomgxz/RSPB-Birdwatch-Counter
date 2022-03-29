@@ -1,0 +1,46 @@
+:root {
+    --link-previsited-color:var(--colors-dark);
+}
+
+
+.table {
+    border: 2px solid var(--colors-grey-400);
+    border-radius: 10px;
+    overflow:hidden;
+    width:400px;
+    max-width:400px;
+}
+
+.table-header {
+    background-color:var(--colors-grey-100);
+}
+
+.table-row {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-row:not(.last-row),
+.table-header {
+    border-bottom: 2px solid var(--colors-grey-400);
+}
+
+.table-row-icon,
+.table-row-title {
+    margin-right:6px;
+}
+
+.table-row-settings {
+    float: right;
+}
+
+.field-container {
+    width:400px;
+}
+
+.field-container .field-option {
+  display:flex;
+  justify-content:space-between;
+  padding-bottom:8px;
+}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% set navbarLogoColor = "secondary" %}
+{% set navbarOptionsEnabled = False %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
+<div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header large dark one">RSPB Birdwatch Counter - Signup</h2>
+        <ul class="header-options">
+            <div class="header-option header-option-login notextselect" onclick="window.location.href=`{{ url_for('auth_login') }}`">
+                <h4 class="text header bold">Login</h4>
+            </div>
+            <div class="header-option header-option-signup active notextselect">
+                <h4 class="text header bold">Signup</h4>
+            </div>
+        </ul>
+    </div>
+    <div class="field-container active">
+        <span class="field-warning text italic">
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+              {{ messages[0] }}
+            {% endif %}
+
+            {% endwith %}
+        </span>
+
+        <form class="field-options" method="post" action="/signup/">
+
+          <div class="field-option field-option-username">
+              <h4 class="text italic">Username</h4>
+              <div class="field-input-container">
+                  <input class="field-input input small-text-input" placeholder="Username" type="text" name="username" autofocus>
+                  <span class="eye-spacer"></span>
+              </div>
+          </div>
+          <div class="field-option field-option-password">
+              <h4 class="text italic">Password</h4>
+              <div class="field-input-container">
+                  <input class="field-input input small-text-input" placeholder="Password" type="password" name="password">
+                  <span class="eye-reveal">
+                  <i class="fa-solid fa-eye"></i>
+                  </span>
+              </div>
+          </div>
+          <div class="field-option field-option-password-repeat">
+              <h4 class="text italic">Repeat Password</h4>
+              <div class="field-input-container">
+                  <input class="field-input input small-text-input" placeholder="Again :/" type="password" name="password-repeat">
+                  <span class="eye-reveal">
+                  <i class="fa-solid fa-eye"></i>
+                  </span>
+              </div>
+          </div>
+
+          <button class="field-submit btn secondary rounded slide thin" type="submit">
+            <span class="btn-content text uppercase">Submit</span>
+          </button>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="../static/js/signup.js"></script>
+
+{% endblock %}

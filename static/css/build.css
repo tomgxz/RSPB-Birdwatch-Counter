@@ -1,0 +1,36 @@
+.globalnav {
+    background: var(--colors-grey-100);
+}
+
+.application-container {
+    width:100vw;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.application-content {
+    width:100%;
+    height:100%;
+    padding: 16px;
+}
+
+.application-content .text-header-container {
+    margin-bottom:64px;
+}
+
+.main {
+    /*height:calc(100% - 79px - 64px);*/
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+.main-content {
+    width:100%;
+    height:100%;
+}
+
+.main-content.thin {
+    width:60%
+}

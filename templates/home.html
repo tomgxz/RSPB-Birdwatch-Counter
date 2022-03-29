@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% set navbarLogoColor = "primary" %}
+{% set navbarOptionsEnabled = True %}
+
+{% set bird_count_dict = get_flashed_messages()[0] %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" type="text/css" />
+<div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header large dark one">RSBP Big Garden Birdwatch</h2>
+    </div>
+
+    <span class="text dark large">Please enter the name and amount spotted</span>
+
+      <div class="field-container active m-s-t">
+          <span class="field-warning text italic danger flex flex-column">
+              {% with messages = get_flashed_messages() %}
+
+              {% if messages|length>1 %}
+                <span>{{ messages[1] }}</span>
+                <span class="m-s-t"></span>
+              {% endif %}
+
+              {% endwith %}
+          </span>
+
+          <form class="field-options" method="post" action="/home/">
+
+              <div class="field-option field-option-bird-name">
+                  <h4 class="text italic">Bird Name</h4>
+                  <div class="field-input-container">
+                      <input class="field-input input small-text-input" placeholder="Name" type="text" name="bird_form_name">
+                  </div>
+              </div>
+
+              <div class="field-option field-option-bird-amount">
+                  <h4 class="text italic">Amount Seen</h4>
+                  <div class="field-input-container">
+                      <input class="field-input input small-text-input" placeholder="Amount" type="text" name="bird_form_amount">
+                  </div>
+              </div>
+
+              <button class="field-submit btn primary rounded slide thin" type="submit">
+                <span class="btn-content text uppercase">Submit</span>
+              </button>
+
+          </form>
+
+      </div>
+
+      <div class="table m-s-t">
+          <div class="table-header">
+              <div class="table-row last-row">
+                  <span class="table-row-title text bold dark">Bird</span>
+                  <span class="table-row-content text bold dark">Count</span>
+              </div>
+          </div>
+          <div class="table-content flex flex-column-reverse">
+
+              {%set keys = bird_count_dict.keys()|list%}
+
+              {% for bird in bird_count_dict %}
+
+              <div class="table-row {% if bird==keys[0] %}last-row{% endif %}">
+                  <span class="table-row-title text dark">{{bird}}</span>
+                  <span class="table-row-content text dark">{{bird_count_dict[bird]}}</span>
+              </div>
+
+              {% endfor %}
+
+          </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
