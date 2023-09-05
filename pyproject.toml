@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "RSPB-Birdwatch-Counter"
+version = "0.1.0"
+description = "A flask-built backend website for bird-spotting with an integrated sql database and a functional encrypted login system"
+authors = ["tomgxz <tomgxz.dev@gmail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+repository = "https://github.com/Tomgxz/RSPB-Birdwatch-Counter"
+keywords = ["flask"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^2.0.3"
+flask-login = "^0.5.0"
+flask-sqlalchemy = "^2.5.1"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
